@@ -40,18 +40,11 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::index');
 $routes->get('/buku/create', 'Buku::create');
 $routes->get('/buku/edit/(:segment)', 'Buku::edit/$1');
-// $routes->get('/buku/update/(:any)', 'Buku::update/$1');
 
 $routes->delete('/buku/(:num)', 'Buku::delete/$1');
 $routes->get('/buku/(:any)', 'Buku::detail/$1');
 // $routes->get('komik/save', 'Komik::save'); :any=gak diambil slash >< :segment
-
-// $routes->get('/coba/index', 'Coba::index');
-// $routes->get('/coba/about', 'Coba::about');
-// $routes->get('/coba/(:any)', 'Coba::about/$1');
-
 // $routes->get('/users', 'Admin\Users::index');
-
 // $routes->get('/coba', 'Coba::about');
 // $routes->get('/coba', function () {
 //     echo "SELAMAT DATANG";

@@ -12,7 +12,7 @@
                         <?= session()->getFlashdata('pesan'); ?>
                     </div>
                 <?php endif; ?>
-                <thead class="table-secondary">
+                <thead class="table-dark">
                     <tr>
                         <th scope="col">No.</th>
                         <th scope="col">Sampul</th>
@@ -28,7 +28,7 @@
                             <td><img src="/img/<?= $b['sampul']; ?>" class="sampul" alt=""></td>
                             <td><?= $b['judul']; ?></td>
                             <td>
-                                <a href="/buku/<?= $b['slug']; ?>" class="btn btn-info">Detail</a>
+                                <a href="/buku/<?= $b['slug']; ?>" class="btn btn-success">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

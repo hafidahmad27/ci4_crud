@@ -54,8 +54,6 @@ class Buku extends BaseController
             // return redirect()->to(base_url() . '/buku/create')->withInput('validation', $validation);
             return redirect()->to(base_url() . '/buku/create')->withInput();
         }
-        // dd('berhasil');
-
         // ambil gambar
         $fileSampul = $this->request->getFile('sampul');
 
@@ -109,17 +107,9 @@ class Buku extends BaseController
 
     public function update($id)
     {
-        // validasi update, cek judul
-        $bukuLama = $this->M_buku->getBuku($this->request->getVar('slug'));
-        if ($bukuLama['judul'] == $this->request->getVar('judul')) {
-            $rule_judul = 'required';
-        } else {
-            $rule_judul = 'required|is_unique[tb_buku.judul]';
-        }
-
         if (!$this->validate([
             'judul' => [
-                'rules' => $rule_judul,
+                'rules' => 'required|is_unique[tb_buku.judul,id,' . $id . ']',
                 'errors' => [
                     'required' => '{field} buku wajib di-isi !',
                     'is_unique' => '{field} buku yang anda inputkan sudah ada, mohon inputkan judul buku lainnya'

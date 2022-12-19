@@ -7,7 +7,7 @@
             <h2 class="my-3">Form Ubah Buku</h2>
             <form action="/buku/update/<?= $buku['id']; ?>" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="{csrf_token}" value="{csrf_hash}">
-                <input type="hidden" name="slug" value="<?= $buku['id']; ?>">
+                <input type="hidden" name="slug" value="<?= $buku['slug']; ?>">
                 <!-- <input type="hidden" name="sampulLama" value="<$buku['sampul']; ?>"> -->
                 <div class="row mb-3">
                     <label for="judul" class="col-sm-2 col-form-label">Judul</label>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Ubah</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>
