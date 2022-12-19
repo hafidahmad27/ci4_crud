@@ -1,6 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+
 <div class="container">
     <div class="row">
         <div class="col-8">
@@ -8,7 +9,7 @@
             <form action="/buku/update/<?= $buku['id']; ?>" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="{csrf_token}" value="{csrf_hash}">
                 <input type="hidden" name="slug" value="<?= $buku['slug']; ?>">
-                <!-- <input type="hidden" name="sampulLama" value="<$buku['sampul']; ?>"> -->
+                <input type="hidden" name="sampulLama" value="<?= $buku['sampul']; ?>">
                 <div class="row mb-3">
                     <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                     <div class="col-sm-10">
@@ -32,9 +33,6 @@
                 </div>
                 <div class="row mb-3">
                     <label for="sampul" class="col-sm-2 col-form-label" value="<?= (old('sampul')) ? old('sampul') : $buku['sampul'] ?>">Sampul</label>
-                    <!-- <div class="col-sm-10">
-                        <input type="text" class="form-control" id="sampul" name="sampul">
-                    </div> -->
                     <div class="col-sm-2">
                         <img src="/img/<?= $buku['sampul']; ?>" class="img-thumbnail img-preview">
                     </div>
@@ -52,4 +50,5 @@
         </div>
     </div>
 </div>
+
 <?= $this->endSection(); ?>

@@ -1,11 +1,11 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+
 <div class="container">
     <div class="row">
         <div class="col-8">
             <h2 class="my-3">Form Tambah Buku</h2>
-
             <form action="/buku/save" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="{csrf_token}" value="{csrf_hash}">
                 <div class="row mb-3">
@@ -48,4 +48,5 @@
         </div>
     </div>
 </div>
+
 <?= $this->endSection(); ?>
