@@ -55,15 +55,12 @@ class Buku extends BaseController
         // ambil gambar
         $fileSampul = $this->request->getFile('sampul');
 
-        // apakah tidak ada gambar yang di-upload
+        // cek apakah tidak ada gambar yang di-upload
         if ($fileSampul->getError() == 4) {
             $namaSampul = 'default-gambar.png';
         } else {
-            // generate nama file sampul random
-            $namaSampul = $fileSampul->getRandomName();
-
-            // pindahkan gambar ke folder img
-            $fileSampul->move('img', $namaSampul);
+            $fileSampul->move('img');
+            $namaSampul = $fileSampul->getName();
         }
 
         $slug = url_title($this->request->getVar('judul'), '-', true);
@@ -125,15 +122,12 @@ class Buku extends BaseController
         // ambil gambar
         $fileSampul = $this->request->getFile('sampul');
 
-        // cek apakah tetap gambar lama ?
+        // cek apakah tidak ada gambar yang di-upload
         if ($fileSampul->getError() == 4) {
-            $namaSampul = $this->request->getVar('sampulLama');
+            $namaSampul = 'default-gambar.png';
         } else {
-            // generate nama file sampul random
-            $namaSampul = $fileSampul->getRandomName();
-
-            // pindahkan gambar ke folder img
-            $fileSampul->move('img', $namaSampul);
+            $fileSampul->move('img');
+            $namaSampul = $fileSampul->getName();
 
             // hapus file yang lama
             if ($this->request->getVar('sampulLama') != 'default-gambar.png') {
